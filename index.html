@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
+    gap: 3rem;
   }
 
   .shelf-unit {
@@ -85,27 +85,20 @@
   .shelf {
     position: relative;
     width: 100%;
-    height: 12px;
-    border-radius: 2px;
+    height: 16px;
+    border-radius: 1px;
     background:
-      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.18) 2px, transparent 2px, transparent 16px),
-      linear-gradient(180deg, #4a3323 0%, #2e2015 55%, #1e150d 100%);
-    box-shadow: 0 14px 22px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      radial-gradient(11px 5px at 22% 35%, rgba(0, 0, 0, 0.3), transparent 70%),
+      radial-gradient(7px 4px at 68% 65%, rgba(0, 0, 0, 0.22), transparent 70%),
+      repeating-linear-gradient(88deg,
+        rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 5px,
+        rgba(0, 0, 0, 0.08) 5px, rgba(0, 0, 0, 0.08) 6px, transparent 6px, transparent 13px,
+        rgba(0, 0, 0, 0.1) 13px, rgba(0, 0, 0, 0.1) 14px, transparent 14px, transparent 24px,
+        rgba(255, 255, 255, 0.035) 24px, rgba(255, 255, 255, 0.035) 25px, transparent 25px, transparent 37px),
+      linear-gradient(100deg, #4d3520 0%, #5c4028 18%, #45301c 42%, #543a22 60%, #3a2814 80%, #2a1a0e 100%),
+      linear-gradient(180deg, #5c4028 0%, #46301d 40%, #382413 70%, #2a1a0e 100%);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 220, 180, 0.12), inset 0 -3px 4px rgba(0, 0, 0, 0.4);
   }
-
-  .shelf::before,
-  .shelf::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    width: 5px;
-    height: 30px;
-    background: linear-gradient(180deg, #2e2015, #180f09);
-    border-radius: 0 0 2px 2px;
-  }
-
-  .shelf::before { left: 17%; transform-origin: top; transform: rotate(7deg); }
-  .shelf::after  { right: 17%; transform-origin: top; transform: rotate(-7deg); }
 
   .record {
     position: relative;
@@ -202,25 +195,6 @@
     line-height: 1.5;
   }
 
-  .release {
-    margin: 0.75rem 0 0;
-    max-width: 34ch;
-    font-size: 1.0625rem;
-    line-height: 1.5;
-    color: var(--quiet);
-  }
-
-  .release em {
-    font-style: italic;
-    color: var(--paper);
-  }
-
-  .contact {
-    margin: 0;
-    font-size: 1.0625rem;
-    line-height: 1.5;
-  }
-
   a {
     color: var(--amber);
     text-decoration: none;
@@ -283,13 +257,7 @@
     </section>
 
     <div class="info">
-      <div>
-        <p class="blurb">Independent record label based in London.</p>
-        <p class="release">First release: Buster &amp; Tallulah, <em>Little Lady</em>, 2 October 2026.</p>
-      </div>
-      <p class="contact">
-        <a href="mailto:hello@rathergoodrecords.com">hello@rathergoodrecords.com</a>
-      </p>
+      <p class="blurb">Independent record label based in London.</p>
     </div>
 
   </main>
