@@ -131,9 +131,25 @@
     height: 62px;
     border-radius: 50%;
     background:
-      radial-gradient(circle at center, var(--amber) 0 6px, #111 7px 9px, #1b1b1b 9px 100%),
-      repeating-radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 6px);
+      repeating-radial-gradient(circle at center, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 4px),
+      radial-gradient(circle at center, #2c2c2c 0 13px, #131313 13px 100%);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  .record::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 26px;
+    height: 26px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-image: url("assets/little-lady-cover-art.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
     z-index: -1;
   }
 
