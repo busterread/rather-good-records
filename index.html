@@ -49,8 +49,8 @@
   }
 
   .wordmark {
-    margin: 0 0 auto;
-    padding-top: 4rem;
+    margin: 0;
+    padding-top: 3rem;
     font-size: clamp(3.4rem, 15.5vw, 11rem);
     font-weight: 700;
     line-height: 0.84;
@@ -64,6 +64,118 @@
 
   .wordmark span:last-child {
     color: var(--amber);
+  }
+
+  .shelving {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .shelf-unit {
+    position: relative;
+    width: min(100%, 14rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shelf {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    border-radius: 2px;
+    background:
+      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.18) 2px, transparent 2px, transparent 16px),
+      linear-gradient(180deg, #4a3323 0%, #2e2015 55%, #1e150d 100%);
+    box-shadow: 0 14px 22px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .shelf::before,
+  .shelf::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 5px;
+    height: 30px;
+    background: linear-gradient(180deg, #2e2015, #180f09);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .shelf::before { left: 17%; transform-origin: top; transform: rotate(7deg); }
+  .shelf::after  { right: 17%; transform-origin: top; transform: rotate(-7deg); }
+
+  .record {
+    position: relative;
+    z-index: 1;
+    width: 76px;
+    aspect-ratio: 1;
+    margin-bottom: -3px;
+    padding: 0.45rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 3px;
+    background: linear-gradient(160deg, rgba(244, 233, 214, 0.14), rgba(244, 233, 214, 0.04));
+    border: 1px solid rgba(244, 233, 214, 0.22);
+    box-shadow: 0 14px 20px rgba(0, 0, 0, 0.45);
+    transform: rotate(-3deg);
+    transform-origin: bottom center;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 233, 214, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .record::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, var(--amber) 0 6px, #111 7px 9px, #1b1b1b 9px 100%),
+      repeating-radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 6px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  .record:hover,
+  .record:focus-visible {
+    transform: rotate(-3deg) translateY(-5px);
+    box-shadow: 0 20px 24px rgba(0, 0, 0, 0.5);
+    border-bottom-color: var(--amber);
+  }
+
+  .record:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  .record-title {
+    font-weight: 700;
+    font-size: 0.68rem;
+    line-height: 1.15;
+    color: var(--paper);
+  }
+
+  .record-artist {
+    font-size: 0.56rem;
+    line-height: 1.25;
+    color: var(--quiet);
+    margin-top: 0.15rem;
+  }
+
+  .record-date {
+    font-size: 0.5rem;
+    line-height: 1.25;
+    color: var(--amber);
+    margin-top: 0.25rem;
+    letter-spacing: 0.02em;
   }
 
   .info {
@@ -142,7 +254,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .wordmark span, .info { animation: none; }
-    a { transition: none; }
+    a, .record { transition: none; }
   }
 </style>
 </head>
@@ -155,6 +267,20 @@
       <span>Good</span>
       <span>Records</span>
     </h1>
+
+    <section class="shelving" aria-label="Record display shelves">
+      <div class="shelf-unit">
+        <a class="record" href="https://busterandtallulah.com" target="_blank" rel="noopener">
+          <span class="record-title">Little Lady</span>
+          <span class="record-artist">Buster &amp; Tallulah</span>
+          <span class="record-date">Out 2 October 2026</span>
+        </a>
+        <div class="shelf"></div>
+      </div>
+      <div class="shelf-unit">
+        <div class="shelf"></div>
+      </div>
+    </section>
 
     <div class="info">
       <div>
